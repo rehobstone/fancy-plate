@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — Fancy Plate Catering & Events, Abuja</title>
+<meta name="description" content="A look at the tables, plates and rooms Fancy Plate Catering & Events has styled across Abuja — weddings, corporate events, celebrations and bakery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF9F6; --ink:#171614; --accent:#B08D3F; --accent-soft:#C8A951;
+  --muted:#6B6B6B; --border:#E7E2D9; --ink-soft:#3A3833;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;letter-spacing:-.02em}
+a{color:inherit}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(250,249,246,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1240px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font-family:'Fraunces',serif;font-weight:700;font-size:21px;text-decoration:none}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:30px;font-size:14px;font-weight:500}
+.nav-links a{text-decoration:none;color:var(--muted);padding:4px 0;border-bottom:1px solid transparent}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a.active{color:var(--ink);border-bottom-color:var(--accent)}
+.nav-cta{background:var(--ink);color:#fff;text-decoration:none;font-size:13.5px;font-weight:600;padding:11px 20px;border-radius:6px;white-space:nowrap}
+.nav-cta:hover{background:var(--accent)}
+.burger{display:none;background:none;border:1px solid var(--border);border-radius:6px;padding:8px 10px;cursor:pointer;font-size:16px;line-height:1}
+
+.masthead{max-width:1240px;margin:0 auto;padding:74px 28px 34px;display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:end}
+.eyebrow{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:18px}
+.masthead h1{font-size:clamp(2.4rem,5vw,3.9rem);line-height:1.03;max-width:16ch}
+.masthead p{font-size:16.5px;color:var(--muted);max-width:46ch}
+.rule{height:1px;background:var(--border)}
+
+.filters{max-width:1240px;margin:0 auto;padding:24px 28px 8px;display:flex;flex-wrap:wrap;gap:9px}
+.filters button{font-family:inherit;font-size:13px;font-weight:500;color:var(--ink-soft);background:#fff;border:1px solid var(--border);padding:8px 16px;border-radius:100px;cursor:pointer;transition:.18s}
+.filters button:hover{border-color:var(--accent);color:var(--accent)}
+.filters button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+
+.grid{max-width:1240px;margin:0 auto;padding:22px 28px 90px;display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.tile{position:relative;border:0;padding:0;cursor:pointer;overflow:hidden;border-radius:10px;background:#EFEADF;grid-column:span 2;aspect-ratio:4/3;display:block;font-family:inherit;text-align:left}
+.tile.wide{grid-column:span 4}
+.tile.tall{grid-column:span 2;aspect-ratio:3/4}
+.tile svg{position:absolute;inset:0;width:100%;height:100%;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.tile:hover svg{transform:scale(1.045)}
+.tile:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.tile-cap{position:absolute;left:0;right:0;bottom:0;padding:34px 18px 15px;background:linear-gradient(to top,rgba(20,19,17,.72),rgba(20,19,17,0));color:#fff;display:flex;justify-content:space-between;align-items:end;gap:12px}
+.tile-cap b{font-family:'Fraunces',serif;font-weight:600;font-size:15.5px;letter-spacing:-.01em;display:block}
+.tile-cap span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.72}
+.tile-cap i{font-style:normal;font-size:11px;border:1px solid rgba(255,255,255,.4);padding:3px 8px;border-radius:3px;white-space:nowrap;opacity:.9}
+.tile[hidden]{display:none}
+
+.note-band{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.note-inner{max-width:1240px;margin:0 auto;padding:44px 28px;display:flex;justify-content:space-between;gap:32px;align-items:center;flex-wrap:wrap}
+.note-inner p{font-size:14.5px;color:var(--muted);max-width:62ch}
+.note-inner p b{color:var(--ink);font-weight:600}
+.note-inner a{background:var(--ink);color:#fff;text-decoration:none;font-weight:600;font-size:14px;padding:13px 24px;border-radius:6px;white-space:nowrap}
+.note-inner a:hover{background:var(--accent)}
+
+footer{background:var(--bg)}
+.foot-inner{max-width:1240px;margin:0 auto;padding:44px 28px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--muted)}
+.foot-links{display:flex;gap:22px}
+.foot-links a{text-decoration:none;color:var(--muted)}
+.foot-links a:hover{color:var(--ink)}
+
+.lightbox{position:fixed;inset:0;z-index:200;display:none;background:rgba(16,15,13,.94);padding:28px;align-items:center;justify-content:center}
+.lightbox.open{display:flex}
+.lb-figure{max-width:1000px;width:100%;background:#141311;border:1px solid rgba(255,255,255,.12);border-radius:12px;overflow:hidden}
+.lb-art{width:100%;aspect-ratio:16/9;background:#EFEADF}
+.lb-art svg{width:100%;height:100%;display:block}
+.lb-body{padding:22px 26px 26px;color:#F4EFE6;display:flex;justify-content:space-between;gap:20px;align-items:end;flex-wrap:wrap}
+.lb-body h3{font-size:1.35rem}
+.lb-body p{font-size:13.5px;color:rgba(255,255,255,.6);margin-top:6px;max-width:52ch}
+.lb-close{background:none;border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:6px;padding:9px 14px;cursor:pointer;font-family:inherit;font-size:13px}
+.lb-close:hover{background:rgba(255,255,255,.1)}
+
+@media(max-width:1000px){
+  .masthead{grid-template-columns:1fr;gap:20px;padding-top:52px}
+  .grid{grid-template-columns:repeat(4,1fr)}
+  .tile.wide{grid-column:span 4}
+  .tile,.tile.tall{grid-column:span 2;aspect-ratio:4/3}
+}
+@media(max-width:680px){
+  .grid{grid-template-columns:1fr 1fr;gap:12px;padding:18px 20px 70px}
+  .tile,.tile.tall,.tile.wide{grid-column:span 2;aspect-ratio:4/3}
+  .tile.wide{grid-column:span 2}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;gap:0;padding:8px 28px 18px;border-bottom:1px solid var(--border)}
+  .nav-links.open a{padding:12px 0;border-bottom:1px solid var(--border)}
+  .burger{display:block}
+  .nav-cta{display:none}
+  .masthead,.filters{padding-left:20px;padding-right:20px}
+  .note-inner,.foot-inner{padding-left:20px;padding-right:20px}
+}
+@media(prefers-reduced-motion:reduce){.tile svg{transition:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Fancy<span>Plate</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="menu.html">Menu</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <a href="index.html#contact" class="nav-cta">Book an event</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">☰</button>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div>
+    <div class="eyebrow">The Gallery</div>
+    <h1>Tables we've set, plates we've sent out.</h1>
+  </div>
+  <p>A cross-section of our work across Abuja — wedding receptions, corporate lunches, family celebrations and the bakery table. Filter by the kind of event you're planning.</p>
+</header>
+<div class="rule"></div>
+
+<div class="filters" role="group" aria-label="Filter gallery">
+  <button data-filter="all" aria-pressed="true">All work</button>
+  <button data-filter="wedding" aria-pressed="false">Weddings</button>
+  <button data-filter="corporate" aria-pressed="false">Corporate</button>
+  <button data-filter="celebration" aria-pressed="false">Celebrations</button>
+  <button data-filter="bakery" aria-pressed="false">Bakery</button>
+  <button data-filter="setup" aria-pressed="false">Setups</button>
+</div>
+
+<main class="grid" id="grid">
+
+  <button class="tile wide" data-cat="wedding" data-title="Reception buffet, Maitama" data-desc="Party jollof, coconut rice and grilled chicken plated for 220 guests, with a two-station buffet to keep queues short.">
+    <svg viewBox="0 0 800 600" role="img" aria-label="Wedding reception buffet illustration">
+      <defs>
+        <linearGradient id="w1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F3ECDC"/><stop offset="1" stop-color="#E3D3B4"/></linearGradient>
+      </defs>
+      <rect width="800" height="600" fill="url(#w1)"/>
+      <circle cx="620" cy="120" r="150" fill="#C8A951" opacity=".18"/>
+      <g fill="none" stroke="#B08D3F" stroke-width="2" opacity=".55">
+        <rect x="70" y="330" width="660" height="14" rx="7"/>
+        <path d="M110 344v70M690 344v70"/>
+      </g>
+      <g fill="#FBF7EF" stroke="#D8C9A9" stroke-width="2">
+        <ellipse cx="230" cy="318" rx="96" ry="26"/>
+        <ellipse cx="400" cy="310" rx="96" ry="26"/>
+        <ellipse cx="570" cy="318" rx="96" ry="26"/>
+      </g>
+      <g fill="#D9A441" opacity=".85">
+        <circle cx="205" cy="310" r="9"/><circle cx="232" cy="304" r="7"/><circle cx="258" cy="312" r="8"/>
+        <circle cx="376" cy="302" r="8"/><circle cx="402" cy="299" r="9"/><circle cx="428" cy="305" r="7"/>
+        <circle cx="546" cy="311" r="8"/><circle cx="572" cy="306" r="9"/><circle cx="598" cy="313" r="7"/>
+      </g>
+      <g fill="#7D6B4C" opacity=".5">
+        <rect x="150" y="372" width="120" height="6" rx="3"/><rect x="330" y="372" width="120" height="6" rx="3"/><rect x="500" y="372" width="120" height="6" rx="3"/>
+      </g>
+      <text x="70" y="120" font-family="Fraunces, Georgia, serif" font-size="42" fill="#171614" opacity=".9">The reception</text>
+      <text x="70" y="156" font-family="Inter, sans-serif" font-size="15" fill="#6B6B6B" letter-spacing="3">MAITAMA · 220 GUESTS</text>
+    </svg>
+    <div class="tile-cap"><span><b>Reception buffet</b><span>Maitama, Abuja</span></span><i>220 guests</i></div>
+  </button>
+
+  <button class="tile tall" data-cat="bakery" data-title="Celebration cake table" data-desc="Three-tier cake with matched cupcakes and cake pops, colour-matched to the event palette.">
+    <svg viewBox="0 0 600 800" role="img" aria-label="Celebration cake illustration">
+      <defs><linearGradient id="b1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6F0E4"/><stop offset="1" stop-color="#E6D9C1"/></linearGradient></defs>
+      <rect width="600" height="800" fill="url(#b1)"/>
+      <circle cx="300" cy="300" r="190" fill="#C8A951" opacity=".12"/>
+      <g stroke="#B08D3F" stroke-width="2" fill="#FCF8F0">
+        <rect x="190" y="470" width="220" height="120" rx="10"/>
+        <rect x="228" y="380" width="144" height="90" rx="9"/>
+        <rect x="258" y="312" width="84" height="68" rx="8"/>
+      </g>
+      <g fill="#C8A951" opacity=".75">
+        <circle cx="222" cy="470" r="6"/><circle cx="254" cy="470" r="6"/><circle cx="286" cy="470" r="6"/><circle cx="318" cy="470" r="6"/><circle cx="350" cy="470" r="6"/><circle cx="382" cy="470" r="6"/>
+        <circle cx="258" cy="380" r="5"/><circle cx="288" cy="380" r="5"/><circle cx="318" cy="380" r="5"/><circle cx="348" cy="380" r="5"/>
+      </g>
+      <path d="M300 312c-14-26 14-38 0-64" stroke="#B08D3F" stroke-width="2" fill="none"/>
+      <circle cx="300" cy="240" r="8" fill="#C8A951"/>
+      <rect x="150" y="590" width="300" height="10" rx="5" fill="#7D6B4C" opacity=".28"/>
+      <text x="300" y="700" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="30" fill="#171614" opacity=".88">The cake table</text>
+      <text x="300" y="732" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#6B6B6B" letter-spacing="3">BAKED TO ORDER</text>
+    </svg>
+    <div class="tile-cap"><span><b>Celebration cake</b><span>Bakery</span></span></div>
+  </button>
+
+  <button class="tile" data-cat="corporate" data-title="Corporate lunch, Central Business District" data-desc="Individually plated lunch for a product launch — continental mains with a Nigerian option, cleared quietly between sessions.">
+    <svg viewBox="0 0 600 450" role="img" aria-label="Corporate plated lunch illustration">
+      <rect width="600" height="450" fill="#EEF0EC"/>
+      <rect x="40" y="40" width="520" height="370" fill="#F7F8F6"/>
+      <g>
+        <circle cx="300" cy="230" r="120" fill="#FFFFFF" stroke="#D7D9D2" stroke-width="2"/>
+        <circle cx="300" cy="230" r="92" fill="none" stroke="#E4E6DF" stroke-width="1"/>
+        <path d="M232 210c26-22 110-22 136 0" stroke="#8FA37C" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <rect x="270" y="228" width="60" height="34" rx="6" fill="#C08A57"/>
+        <circle cx="372" cy="196" r="12" fill="#D9A441"/>
+        <circle cx="228" cy="196" r="12" fill="#D9A441"/>
+      </g>
+      <g stroke="#B7BDB2" stroke-width="2" fill="#F1F3EE">
+        <rect x="70" y="330" width="150" height="10" rx="4"/>
+        <rect x="380" y="330" width="150" height="10" rx="4"/>
+      </g>
+      <text x="60" y="90" font-family="Fraunces, Georgia, serif" font-size="30" fill="#171614" opacity=".88">The working lunch</text>
+      <text x="60" y="118" font-family="Inter, sans-serif" font-size="12" fill="#6B6B6B" letter-spacing="3">CBD · PLATED SERVICE</text>
+    </svg>
+    <div class="tile-cap"><span><b>Corporate lunch</b><span>CBD, Abuja</span></span><i>Plated</i></div>
+  </button>
+
+  <button class="tile" data-cat="celebration" data-title="Small chops station" data-desc="Puff puff, samosa, spring rolls, peppered gizzard and suya skewers, kept hot through a standing reception.">
+    <svg viewBox="0 0 600 450" role="img" aria-label="Small chops station illustration">
+      <rect width="600" height="450" fill="#F5EEE2"/>
+      <circle cx="110" cy="90" r="100" fill="#C8A951" opacity=".16"/>
+      <g fill="#FBF6EC" stroke="#D9C7A6" stroke-width="2">
+        <circle cx="200" cy="240" r="66"/>
+        <circle cx="330" cy="270" r="56"/>
+        <circle cx="432" cy="220" r="48"/>
+      </g>
+      <g fill="#CF9B3F">
+        <circle cx="182" cy="235" r="13"/><circle cx="212" cy="222" r="10"/><circle cx="226" cy="252" r="11"/>
+        <circle cx="318" cy="266" r="10"/><circle cx="342" cy="278" r="9"/>
+        <circle cx="424" cy="214" r="8"/><circle cx="440" cy="230" r="8"/>
+      </g>
+      <g stroke="#B07A4A" stroke-width="5" stroke-linecap="round">
+        <path d="M148 320l44 26"/><path d="M220 330l46 20"/><path d="M300 336l44 22"/>
+      </g>
+      <text x="60" y="390" font-family="Fraunces, Georgia, serif" font-size="28" fill="#171614" opacity=".88">Small chops station</text>
+      <text x="60" y="416" font-family="Inter, sans-serif" font-size="12" fill="#6B6B6B" letter-spacing="3">STANDING RECEPTION</text>
+    </svg>
+    <div class="tile-cap"><span><b>Small chops</b><span>Reception</span></span></div>
+  </button>
+
+  <button class="tile" data-cat="setup" data-title="Table styling, Asokoro" data-desc="Linens, charger plates, cutlery and centrepieces laid out before guests arrive — timed to finish an hour before the event.">
+    <svg viewBox="0 0 600 450" role="img" aria-label="Table styling illustration">
+      <rect width="600" height="450" fill="#F0EBE1"/>
+      <rect x="40" y="150" width="520" height="210" fill="#FBF7EF"/>
+      <path d="M40 150h520v18H40z" fill="#E7DDC9"/>
+      <g fill="#FFFFFF" stroke="#D8C9A9" stroke-width="2">
+        <circle cx="150" cy="255" r="46"/><circle cx="300" cy="255" r="46"/><circle cx="450" cy="255" r="46"/>
+      </g>
+      <g fill="none" stroke="#C3C9BC" stroke-width="3">
+        <path d="M118 215v-34M182 215v-34"/><path d="M268 215v-34M332 215v-34"/><path d="M418 215v-34M482 215v-34"/>
+      </g>
+      <g fill="#8C9C86" opacity=".7">
+        <rect x="282" y="120" width="4" height="34"/><path d="M284 120c-16-12-24 4-24 4s14 6 24-4z"/><path d="M284 126c14-12 22 2 22 2s-12 6-22-2z"/>
+      </g>
+      <text x="50" y="90" font-family="Fraunces, Georgia, serif" font-size="30" fill="#171614" opacity=".88">The table, before guests</text>
+      <text x="50" y="118" font-family="Inter, sans-serif" font-size="12" fill="#6B6B6B" letter-spacing="3">ASOKORO · SETUP</text>
+    </svg>
+    <div class="tile-cap"><span><b>Table styling</b><span>Asokoro, Abuja</span></span></div>
+  </button>
+
+  <button class="tile" data-cat="wedding" data-title="Grill station, Wuse II" data-desc="Live grill for chicken and peppered goat, carved and served through the evening so nothing sits under a lamp.">
+    <svg viewBox="0 0 600 450" role="img" aria-label="Live grill station illustration">
+      <rect width="600" height="450" fill="#2A2723"/>
+      <circle cx="470" cy="90" r="120" fill="#C8A951" opacity=".12"/>
+      <g stroke="#6E6558" stroke-width="3" fill="none">
+        <rect x="150" y="200" width="300" height="90" rx="8"/>
+        <path d="M180 290v46M420 290v46"/>
+      </g>
+      <g stroke="#C8A951" stroke-width="3" opacity=".8">
+        <path d="M180 220h240M180 240h240M180 260h240"/>
+      </g>
+      <g fill="#D08A4E">
+        <rect x="196" y="226" width="40" height="12" rx="4"/>
+        <rect x="258" y="246" width="44" height="12" rx="4"/>
+        <rect x="330" y="226" width="38" height="12" rx="4"/>
+        <rect x="386" y="246" width="34" height="12" rx="4"/>
+      </g>
+      <g fill="#F3C9A2" opacity=".25">
+        <path d="M250 190c-10-20 10-26 4-44M300 184c-10-18 10-24 4-40M350 190c-10-20 10-26 4-44"/>
+      </g>
+      <text x="150" y="384" font-family="Fraunces, Georgia, serif" font-size="28" fill="#F4EFE6" opacity=".9">The grill station</text>
+      <text x="150" y="410" font-family="Inter, sans-serif" font-size="12" fill="#B6AF9F" letter-spacing="3">WUSE II · LIVE COOKING</text>
+    </svg>
+    <div class="tile-cap"><span><b>Grill station</b><span>Wuse II, Abuja</span></span></div>
+  </button>
+
+  <button class="tile wide" data-cat="celebration" data-title="Family celebration, Gwarinpa" data-desc="A 60th birthday at home — three mains, two swallows, dessert table and staffed drinks, set up in a residential compound.">
+    <svg viewBox="0 0 800 600" role="img" aria-label="Family celebration illustration">
+      <defs><linearGradient id="c1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F7EFE0"/><stop offset="1" stop-color="#EBDCC2"/></linearGradient></defs>
+      <rect width="800" height="600" fill="url(#c1)"/>
+      <g fill="#C8A951" opacity=".22">
+        <circle cx="120" cy="110" r="6"/><circle cx="180" cy="140" r="4"/><circle cx="240" cy="90" r="5"/>
+        <circle cx="620" cy="130" r="6"/><circle cx="690" cy="100" r="4"/><circle cx="660" cy="170" r="5"/>
+      </g>
+      <path d="M400 60v310" stroke="#B08D3F" stroke-width="2" opacity=".4"/>
+      <g fill="#FBF6EC" stroke="#D9C7A6" stroke-width="2">
+        <ellipse cx="300" cy="330" rx="110" ry="30"/>
+        <ellipse cx="500" cy="330" rx="110" ry="30"/>
+      </g>
+      <g fill="#D9A441">
+        <circle cx="270" cy="322" r="9"/><circle cx="300" cy="316" r="8"/><circle cx="330" cy="324" r="9"/>
+        <circle cx="470" cy="322" r="9"/><circle cx="500" cy="316" r="8"/><circle cx="530" cy="324" r="9"/>
+      </g>
+      <g fill="#8C9C86" opacity=".65">
+        <rect x="346" y="300" width="4" height="46"/><path d="M348 300c-16-14-26 2-26 2s16 8 26-2z"/><path d="M348 308c14-14 24 2 24 2s-14 8-24-2z"/>
+        <rect x="446" y="300" width="4" height="46"/><path d="M448 300c-16-14-26 2-26 2s16 8 26-2z"/><path d="M448 308c14-14 24 2 24 2s-14 8-24-2z"/>
+      </g>
+      <text x="70" y="470" font-family="Fraunces, Georgia, serif" font-size="38" fill="#171614" opacity=".9">A birthday at home</text>
+      <text x="70" y="504" font-family="Inter, sans-serif" font-size="14" fill="#6B6B6B" letter-spacing="3">GWARINPA · 60 GUESTS</text>
+    </svg>
+    <div class="tile-cap"><span><b>Family celebration</b><span>Gwarinpa, Abuja</span></span><i>60 guests</i></div>
+  </button>
+
+  <button class="tile" data-cat="corporate" data-title="Conference refreshment break" data-desc="Tea, coffee, pastries and fruit for a two-day conference — restocked on a fixed schedule without interrupting sessions.">
+    <svg viewBox="0 0 600 450" role="img" aria-label="Conference refreshment break illustration">
+      <rect width="600" height="450" fill="#EDEFEA"/>
+      <g fill="#FFFFFF" stroke="#D5D8CF" stroke-width="2">
+        <rect x="90" y="210" width="420" height="16" rx="8"/>
+        <rect x="120" y="226" width="360" height="8" rx="4" fill="#E7E9E3"/>
+      </g>
+      <g>
+        <path d="M180 210v-52h56v52z" fill="#F7F8F5" stroke="#C9CDC4" stroke-width="2"/>
+        <path d="M236 176h16a14 14 0 0 1 0 28h-16" fill="none" stroke="#C9CDC4" stroke-width="2"/>
+        <path d="M196 150c-8-12 8-16 2-28M214 150c-8-12 8-16 2-28" stroke="#C9CDC4" stroke-width="2" fill="none"/>
+      </g>
+      <g fill="#D9C7A6">
+        <circle cx="320" cy="196" r="14"/><circle cx="356" cy="196" r="14"/><circle cx="392" cy="196" r="14"/>
+      </g>
+      <g fill="#A8B79E" opacity=".8">
+        <circle cx="440" cy="192" r="9"/><circle cx="462" cy="200" r="8"/><circle cx="424" cy="202" r="8"/>
+      </g>
+      <text x="90" y="330" font-family="Fraunces, Georgia, serif" font-size="28" fill="#171614" opacity=".88">The refreshment break</text>
+      <text x="90" y="356" font-family="Inter, sans-serif" font-size="12" fill="#6B6B6B" letter-spacing="3">CONFERENCE · TWO DAYS</text>
+    </svg>
+    <div class="tile-cap"><span><b>Refreshment break</b><span>Conference</span></span></div>
+  </button>
+
+  <button class="tile" data-cat="bakery" data-title="Pastry and dessert table" data-desc="Meat pies, sausage rolls, tarts and brownies finished the morning of the event, styled on a tiered table.">
+    <svg viewBox="0 0 600 450" role="img" aria-label="Pastry and dessert table illustration">
+      <rect width="600" height="450" fill="#F6EEE3"/>
+      <circle cx="500" cy="380" r="140" fill="#C8A951" opacity=".16"/>
+      <g fill="#FCF6EB" stroke="#DCC9A6" stroke-width="2">
+        <ellipse cx="180" cy="300" rx="62" ry="22"/>
+        <ellipse cx="300" cy="330" rx="58" ry="20"/>
+        <ellipse cx="410" cy="296" rx="54" ry="19"/>
+      </g>
+      <g fill="#C68B54">
+        <path d="M150 296c0-18 14-30 30-30s30 12 30 30z"/>
+        <path d="M272 326c0-16 13-27 28-27s28 11 28 27z"/>
+        <path d="M384 292c0-15 12-25 26-25s26 10 26 25z"/>
+      </g>
+      <g fill="#8A5A3C" opacity=".35">
+        <circle cx="180" cy="286" r="3"/><circle cx="300" cy="316" r="3"/><circle cx="410" cy="284" r="3"/>
+      </g>
+      <text x="60" y="120" font-family="Fraunces, Georgia, serif" font-size="30" fill="#171614" opacity=".88">From the bakery</text>
+      <text x="60" y="148" font-family="Inter, sans-serif" font-size="12" fill="#6B6B6B" letter-spacing="3">BAKED THE SAME MORNING</text>
+    </svg>
+    <div class="tile-cap"><span><b>Pastry table</b><span>Bakery</span></span></div>
+  </button>
+
+</main>
+
+<section class="note-band">
+  <div class="note-inner">
+    <p><b>A note on these images.</b> These are illustrated representations of our event formats, not photographs. We're adding real photos of recent events as our clients give permission — ask us directly and we'll send you a current look-book of tables we've set.</p>
+    <a href="index.html#contact">Ask for the look-book</a>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div><strong style="font-family:'Fraunces',serif;font-size:15px;color:var(--ink)">Fancy Plate</strong> Catering &amp; Events · FHA Zuba, Abuja · 07064651016</div>
+    <div class="foot-links">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lbTitle">
+  <div class="lb-figure">
+    <div class="lb-art" id="lbArt"></div>
+    <div class="lb-body">
+      <div>
+        <h3 id="lbTitle"></h3>
+        <p id="lbDesc"></p>
+      </div>
+      <button class="lb-close" id="lbClose">Close ✕</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// mobile nav
+document.getElementById('burger').addEventListener('click', function(){
+  var links = document.getElementById('navLinks');
+  var open = links.classList.toggle('open');
+  this.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+
+// filtering
+var buttons = document.querySelectorAll('.filters button');
+var tiles = document.querySelectorAll('.tile');
+buttons.forEach(function(btn){
+  btn.addEventListener('click', function(){
+    buttons.forEach(function(b){ b.setAttribute('aria-pressed','false'); });
+    btn.setAttribute('aria-pressed','true');
+    var f = btn.dataset.filter;
+    tiles.forEach(function(t){
+      t.hidden = (f !== 'all' && t.dataset.cat !== f);
+    });
+  });
+});
+
+// lightbox
+var lb = document.getElementById('lightbox');
+var lbArt = document.getElementById('lbArt');
+var lbTitle = document.getElementById('lbTitle');
+var lbDesc = document.getElementById('lbDesc');
+var lastFocus = null;
+
+tiles.forEach(function(tile){
+  tile.addEventListener('click', function(){
+    lastFocus = tile;
+    lbArt.innerHTML = tile.querySelector('svg').outerHTML;
+    lbTitle.textContent = tile.dataset.title || '';
+    lbDesc.textContent = tile.dataset.desc || '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('lbClose').focus();
+  });
+});
+
+function closeLb(){
+  lb.classList.remove('open');
+  document.body.style.overflow = '';
+  if (lastFocus) lastFocus.focus();
+}
+document.getElementById('lbClose').addEventListener('click', closeLb);
+lb.addEventListener('click', function(e){ if (e.target === lb) closeLb(); });
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && lb.classList.contains('open')) closeLb(); });
+</script>
+</body>
+</html>
