@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fancy Plate Catering & Events — Abuja</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAF9F6;
+  --ink: #1A1A1A;
+  --accent: #C8A951;
+  --accent-dark: #A67C2E;
+  --muted: #6B6B6B;
+  --card: #FFFFFF;
+  --border: #E8E4DF;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', system-ui, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.6; }
+img { max-width: 100%; display: block; }
+
+nav { position: fixed; top: 0; width: 100%; background: rgba(250,249,246,0.95); backdrop-filter: blur(12px); z-index: 100; border-bottom: 1px solid var(--border); }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; }
+.nav-logo { font-weight: 800; font-size: 22px; letter-spacing: -0.5px; color: var(--ink); }
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 28px; font-size: 14px; font-weight: 500; color: var(--muted); }
+.nav-links a { text-decoration: none; color: var(--muted); transition: color 0.2s; }
+.nav-links a:hover { color: var(--ink); }
+
+.hero { min-height: 100vh; display: flex; align-items: center; background: linear-gradient(165deg, #FAF9F6 0%, #F0EDE6 100%); position: relative; overflow: hidden; }
+.hero::after { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(200,169,81,0.08) 0%, transparent 70%); }
+.hero-inner { max-width: 1200px; margin: 0 auto; padding: 120px 32px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.hero-tag { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-dark); border: 1px solid var(--accent); padding: 6px 14px; border-radius: 100px; margin-bottom: 24px; }
+.hero h1 { font-size: 56px; font-weight: 800; line-height: 1.05; letter-spacing: -2px; margin-bottom: 20px; }
+.hero h1 span { color: var(--accent); }
+.hero p { font-size: 18px; color: var(--muted); line-height: 1.7; margin-bottom: 36px; max-width: 480px; }
+.hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn-primary { display: inline-block; background: var(--ink); color: #fff; padding: 16px 36px; border-radius: 8px; font-weight: 600; font-size: 15px; text-decoration: none; transition: all 0.2s; border: none; cursor: pointer; }
+.btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+.btn-outline { display: inline-block; padding: 16px 36px; border-radius: 8px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1.5px solid var(--border); color: var(--ink); background: transparent; transition: all 0.2s; cursor: pointer; }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent-dark); }
+.hero-visual { position: relative; }
+.hero-img { width: 100%; border-radius: 16px; box-shadow: 0 40px 80px rgba(0,0,0,0.12); }
+.hero-badge { position: absolute; bottom: -20px; left: -20px; background: var(--card); padding: 20px 28px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); border: 1px solid var(--border); }
+.hero-badge .num { font-size: 32px; font-weight: 800; color: var(--accent); }
+.hero-badge .lbl { font-size: 13px; color: var(--muted); font-weight: 500; }
+
+.section { padding: 100px 32px; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-tag { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+.section h2 { font-size: 40px; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 16px; }
+.section p.sub { font-size: 17px; color: var(--muted); max-width: 560px; line-height: 1.7; }
+
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 48px; }
+.about-img { border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.08); }
+.about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
+.stat h3 { font-size: 36px; font-weight: 800; color: var(--accent); }
+.stat p { font-size: 14px; color: var(--muted); font-weight: 500; }
+
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; }
+.service-card { background: var(--card); padding: 40px 32px; border-radius: 16px; border: 1px solid var(--border); transition: all 0.3s; }
+.service-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(200,169,81,0.1); }
+.service-icon { width: 56px; height: 56px; background: rgba(200,169,81,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 20px; }
+.service-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+.service-card p { font-size: 15px; color: var(--muted); line-height: 1.6; }
+
+.testimonial { background: var(--ink); color: #fff; padding: 80px 32px; text-align: center; }
+.testimonial-inner { max-width: 800px; margin: 0 auto; }
+.testimonial blockquote { font-size: 24px; font-weight: 500; line-height: 1.6; margin-bottom: 24px; opacity: 0.9; }
+.testimonial cite { font-size: 14px; font-style: normal; opacity: 0.6; }
+
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 48px; }
+.contact-info p { font-size: 16px; color: var(--muted); line-height: 1.8; }
+.contact-info .contact-item { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+.contact-icon { width: 44px; height: 44px; background: rgba(200,169,81,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+.contact-form { background: var(--card); padding: 40px; border-radius: 16px; border: 1px solid var(--border); }
+.contact-form input, .contact-form textarea { width: 100%; padding: 14px 18px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 15px; margin-bottom: 16px; outline: none; transition: border 0.2s; }
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--accent); }
+.contact-form textarea { min-height: 120px; resize: vertical; }
+
+footer { padding: 48px 32px; border-top: 1px solid var(--border); text-align: center; }
+.footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.footer-logo { font-weight: 800; font-size: 18px; }
+.footer-logo span { color: var(--accent); }
+.footer-copy { font-size: 14px; color: var(--muted); }
+
+@media (max-width: 768px) {
+  .hero-inner { grid-template-columns: 1fr; text-align: center; }
+  .hero h1 { font-size: 36px; }
+  .hero p { margin: 0 auto 36px; }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Fancy<span>Plate</span></div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Catering · Events · Celebrations</div>
+      <h1>Every Plate Tells a <span>Story</span></h1>
+      <p>Fancy Plate Catering & Events crafts unforgettable dining experiences in Abuja. From intimate gatherings to grand celebrations — fresh cuisine, flawless service, one perfect event.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn-primary">Book Your Event</a>
+        <a href="#services" class="btn-outline">Our Services</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg class="hero-img" width="560" height="420" viewBox="0 0 560 420" xmlns="http://www.w3.org/2000/svg">
+        <rect width="560" height="420" rx="16" fill="#F0EDE6"/>
+        <rect x="40" y="30" width="480" height="360" rx="12" fill="#FFFFFF" opacity="0.6"/>
+        <circle cx="280" cy="180" r="80" fill="#C8A951" opacity="0.15"/>
+        <text x="280" y="190" text-anchor="middle" font-family="Inter" font-size="56" font-weight="800" fill="#1A1A1A">Fancy</text>
+        <text x="280" y="250" text-anchor="middle" font-family="Inter" font-size="56" font-weight="800" fill="#C8A951">Plate</text>
+        <text x="280" y="290" text-anchor="middle" font-family="Inter" font-size="14" font-weight="500" fill="#6B6B6B" letter-spacing="3">CATERING &amp; EVENTS</text>
+      </svg>
+      <div class="hero-badge">
+        <div class="num">10+</div>
+        <div class="lbl">Years of Event Excellence</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="section-tag">About Us</div>
+    <h2>Built on Flavor,<br>Driven by Trust</h2>
+    <p class="sub">Hand in Hand HLC Technology Limited brings you Fancy Plate — where culinary artistry meets event precision. Based in FHA Zuba, Abuja.</p>
+    <div class="about-grid">
+      <svg class="about-img" width="500" height="400" viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+        <rect width="500" height="400" rx="16" fill="#F0EDE6"/>
+        <rect x="60" y="40" width="380" height="320" rx="12" fill="#FFFFFF" opacity="0.5"/>
+        <rect x="100" y="80" width="300" height="200" rx="8" fill="#C8A951" opacity="0.2"/>
+        <text x="250" y="190" text-anchor="middle" font-family="Inter" font-size="18" font-weight="600" fill="#1A1A1A">FHA Zuba, Abuja</text>
+        <text x="250" y="220" text-anchor="middle" font-family="Inter" font-size="14" font-weight="500" fill="#6B6B6B">Nigeria</text>
+      </svg>
+      <div>
+        <div class="about-stats">
+          <div class="stat"><h3>100+</h3><p>Events Hosted</p></div>
+          <div class="stat"><h3>50+</h3><p>Corporate Clients</p></div>
+          <div class="stat"><h3>07064651016</h3><p>Call Us Today</p></div>
+          <div class="stat"><h3>FCT</h3><p>Abuja, Nigeria</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services" style="background: #FFFFFF;">
+  <div class="section-inner">
+    <div class="section-tag">What We Do</div>
+    <h2>Catering for Every Occasion</h2>
+    <p class="sub">Whether it's a wedding, corporate event, or intimate dinner — we deliver flavor, flair, and flawless execution.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🍽️</div>
+        <h3>Catering Services</h3>
+        <p>Fresh, locally-sourced cuisine prepared by expert chefs. Menu tailored to your taste, budget, and event size.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎉</div>
+        <h3>Event Planning</h3>
+        <p>End-to-end event management — venue setup, décor, scheduling, and coordination handled start to finish.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🍰</div>
+        <h3>Baking &amp; Pastries</h3>
+        <p>Custom cakes, desserts, and sweet treats designed to match your theme and impress every guest.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <h3>Corporate Events</h3>
+        <p>Professional catering for meetings, conferences, product launches, and team-building events across FCT.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💍</div>
+        <h3>Weddings</h3>
+        <p>Dream weddings start with the menu. Full-service catering, décor, and timeline management included.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎊</div>
+        <h3>Parties &amp; Celebrations</h3>
+        <p>Birthdays, anniversaries, baby showers — we make every celebration memorable with style and taste.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial">
+  <div class="testimonial-inner">
+    <blockquote>"Fancy Plate made our wedding unforgettable. Every dish was perfection."</blockquote>
+    <cite>— Happy Client, Abuja</cite>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="section-inner">
+    <div class="section-tag">Get in Touch</div>
+    <h2>Let's Plan Something<br>Beautiful Together</h2>
+    <p class="sub">Ready to book? Send us a message and we'll respond within 24 hours.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div style="font-weight:600; font-size:14px; color:var(--muted);">Phone</div>
+            <div>07064651016</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div style="font-weight:600; font-size:14px; color:var(--muted);">Address</div>
+            <div>FHA Zuba, Abuja, Nigeria</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div style="font-weight:600; font-size:14px; color:var(--muted);">Email</div>
+            <div>375566580@qq.com</div>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! We will contact you soon.');">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="text" placeholder="Event Type">
+        <textarea placeholder="Tell us about your event..."></textarea>
+        <button type="submit" class="btn-primary" style="width:100%;">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Fancy<span>Plate</span></div>
+    <div class="footer-copy">© 2026 Fancy Plate Catering &amp; Events. Hand in Hand HLC Technology Limited.</div>
+  </div>
+</footer>
+
+</body>
+</html>
