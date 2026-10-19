@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu & Packages — Fancy Plate Catering & Events, Abuja</title>
+<meta name="description" content="Fancy Plate catering menu for Abuja events: small chops, Nigerian mains, continental dishes, desserts, drinks and tailored event packages.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF9F6; --ink:#171614; --accent:#B08D3F; --accent-soft:#C8A951;
+  --muted:#6B6B6B; --card:#FFFFFF; --border:#E7E2D9; --ink-soft:#3A3833;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.display{font-family:'Fraunces',Georgia,serif;letter-spacing:-0.02em;font-weight:600}
+a{color:inherit}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(250,249,246,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1180px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font-family:'Fraunces',serif;font-weight:700;font-size:21px;letter-spacing:-.02em;text-decoration:none}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:30px;font-size:14px;font-weight:500}
+.nav-links a{text-decoration:none;color:var(--muted);padding:4px 0;border-bottom:1px solid transparent;transition:.2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a.active{color:var(--ink);border-bottom-color:var(--accent)}
+.nav-cta{background:var(--ink);color:#fff;text-decoration:none;font-size:13.5px;font-weight:600;padding:11px 20px;border-radius:6px;white-space:nowrap}
+.nav-cta:hover{background:var(--accent)}
+.burger{display:none;background:none;border:1px solid var(--border);border-radius:6px;padding:8px 10px;cursor:pointer;font-size:16px;line-height:1}
+
+.masthead{max-width:1180px;margin:0 auto;padding:74px 28px 40px}
+.eyebrow{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:18px}
+.masthead h1{font-size:clamp(2.4rem,5.2vw,4rem);line-height:1.03;max-width:15ch}
+.masthead p{margin-top:22px;font-size:17.5px;color:var(--muted);max-width:56ch}
+.rule{height:1px;background:var(--border);max-width:1180px;margin:0 auto}
+
+.filters{max-width:1180px;margin:0 auto;padding:26px 28px 0;display:flex;flex-wrap:wrap;gap:10px}
+.filters a{font-size:13px;font-weight:500;text-decoration:none;color:var(--ink-soft);border:1px solid var(--border);padding:8px 15px;border-radius:100px;background:#fff;transition:.2s}
+.filters a:hover{border-color:var(--accent);color:var(--accent)}
+
+.menu{max-width:1180px;margin:0 auto;padding:20px 28px 20px}
+.course{padding:56px 0 8px;border-bottom:1px solid var(--border);scroll-margin-top:90px}
+.course:last-of-type{border-bottom:none}
+.course-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:8px}
+.course h2{font-size:clamp(1.6rem,2.6vw,2.1rem)}
+.course .note{font-size:13.5px;color:var(--muted);font-style:italic}
+.dishes{display:grid;grid-template-columns:repeat(2,1fr);gap:0 56px;margin-top:22px}
+.dish{display:flex;justify-content:space-between;gap:18px;padding:15px 0;border-bottom:1px dotted #DAD3C6;align-items:baseline}
+.dish:last-child,.dish:nth-last-child(2){border-bottom:none}
+.dish-name{font-weight:600;font-size:15.5px}
+.dish-desc{display:block;font-size:13.5px;color:var(--muted);font-weight:400;margin-top:3px;max-width:44ch;line-height:1.5}
+.tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);border:1px solid #E3D6B8;background:#FCF7EA;padding:2px 8px;border-radius:3px;margin-left:8px;vertical-align:2px;font-weight:600;white-space:nowrap}
+
+.packages{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-top:40px}
+.packages-inner{max-width:1180px;margin:0 auto;padding:76px 28px}
+.packages h2{font-size:clamp(1.8rem,3vw,2.4rem);max-width:20ch}
+.packages .lead{margin-top:14px;color:var(--muted);max-width:58ch;font-size:16px}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.tier{border:1px solid var(--border);border-radius:12px;padding:30px 26px;display:flex;flex-direction:column;background:var(--bg);position:relative}
+.tier.featured{background:var(--ink);border-color:var(--ink);color:#F7F3EA}
+.tier.featured .tier-kicker{color:var(--accent-soft)}
+.tier.featured .tier-list li{border-color:rgba(255,255,255,.14);color:rgba(255,255,255,.86)}
+.tier.featured .tier-foot{color:rgba(255,255,255,.6);border-color:rgba(255,255,255,.14)}
+.badge{position:absolute;top:-11px;left:26px;background:var(--accent);color:#fff;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:4px 10px;border-radius:3px}
+.tier-kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.tier h3{font-size:1.45rem;margin:8px 0 6px}
+.tier p{font-size:14px;color:var(--muted);min-height:44px}
+.tier.featured p{color:rgba(255,255,255,.62)}
+.tier-list{list-style:none;margin:20px 0 24px;flex:1}
+.tier-list li{font-size:14px;padding:11px 0;border-bottom:1px solid var(--border);display:flex;gap:10px}
+.tier-list li::before{content:"—";color:var(--accent);flex-shrink:0}
+.tier-foot{font-size:12.5px;color:var(--muted);border-top:1px solid var(--border);padding-top:14px;margin-top:auto}
+.tier a{display:block;text-align:center;text-decoration:none;font-weight:600;font-size:14px;padding:13px;border-radius:6px;margin-top:16px;background:var(--ink);color:#fff;transition:.2s}
+.tier.featured a{background:var(--accent-soft);color:#171614}
+.tier a:hover{opacity:.88}
+
+.how{max-width:1180px;margin:0 auto;padding:74px 28px}
+.how h2{font-size:clamp(1.7rem,2.8vw,2.2rem)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:40px}
+.step .num{font-family:'Fraunces',serif;font-size:2.2rem;color:var(--accent-soft);line-height:1}
+.step h3{font-size:1.05rem;margin:10px 0 8px}
+.step p{font-size:14.5px;color:var(--muted)}
+
+.cta{background:var(--ink);color:#fff}
+.cta-inner{max-width:1180px;margin:0 auto;padding:76px 28px;display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap}
+.cta h2{font-size:clamp(1.7rem,3vw,2.3rem);max-width:22ch;color:#fff}
+.cta p{margin-top:12px;color:rgba(255,255,255,.62);font-size:15.5px;max-width:44ch}
+.cta a{background:var(--accent-soft);color:#171614;text-decoration:none;font-weight:600;padding:15px 28px;border-radius:6px;font-size:14.5px;white-space:nowrap}
+.cta a:hover{background:#fff}
+
+footer{background:var(--bg);border-top:1px solid var(--border)}
+.foot-inner{max-width:1180px;margin:0 auto;padding:44px 28px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--muted)}
+.foot-links{display:flex;gap:22px}
+.foot-links a{text-decoration:none;color:var(--muted)}
+.foot-links a:hover{color:var(--ink)}
+
+@media(max-width:900px){
+  .dishes{grid-template-columns:1fr;gap:0}
+  .dish:nth-last-child(2){border-bottom:1px dotted #DAD3C6}
+  .tiers,.steps{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;gap:0;padding:8px 28px 18px;border-bottom:1px solid var(--border)}
+  .nav-links.open a{padding:12px 0;border-bottom:1px solid var(--border)}
+  .burger{display:block}
+  .nav-cta{display:none}
+  .masthead{padding-top:48px}
+  .packages-inner,.how,.cta-inner{padding-left:22px;padding-right:22px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Fancy<span>Plate</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="menu.html" class="active">Menu</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <a href="index.html#contact" class="nav-cta">Book an event</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">☰</button>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="eyebrow">The Menu</div>
+  <h1>Cooked fresh,<br>served with intention.</h1>
+  <p>Every menu is built around your event — your guests, your budget, your taste. Below is what we cook most often. Tell us what you have in mind and we'll shape it around you.</p>
+</header>
+
+<div class="rule"></div>
+
+<div class="filters" aria-label="Jump to menu section">
+  <a href="#small-chops">Small chops</a>
+  <a href="#mains">Nigerian mains</a>
+  <a href="#proteins">Grill &amp; proteins</a>
+  <a href="#continental">Continental</a>
+  <a href="#desserts">Desserts &amp; bakery</a>
+  <a href="#drinks">Drinks</a>
+</div>
+
+<main class="menu">
+
+  <section class="course" id="small-chops">
+    <div class="course-head">
+      <h2>Small chops &amp; canapés</h2>
+      <span class="note">Served in cocktail portions — priced per piece or per guest</span>
+    </div>
+    <div class="dishes">
+      <div class="dish"><div><span class="dish-name">Puff puff</span><span class="dish-desc">Golden, airy, tossed in spiced sugar while warm.</span></div><span class="tag">Signature</span></div>
+      <div class="dish"><div><span class="dish-name">Samosa &amp; spring rolls</span><span class="dish-desc">Hand-folded, fried to order, served with sweet chilli.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Peppered gizzard</span><span class="dish-desc">Slow-simmered, finished in a coarse pepper and onion sauce.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Suya skewers</span><span class="dish-desc">Beef or chicken, yaji spice, sliced onion and tomato.</span></div><span class="tag">Guest favourite</span></div>
+      <div class="dish"><div><span class="dish-name">Chicken wings</span><span class="dish-desc">Glazed — honey-soy, peri peri, or smoky barbecue.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Mini burgers &amp; sliders</span><span class="dish-desc">Beef or grilled chicken, brioche bun, house sauce.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Chin chin &amp; plantain chips</span><span class="dish-desc">Crunch stations for standing receptions.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Canapé selection</span><span class="dish-desc">Three-bite bites — smoked fish, beef tartare, herbed cheese.</span></div></div>
+    </div>
+  </section>
+
+  <section class="course" id="mains">
+    <div class="course-head">
+      <h2>Nigerian mains</h2>
+      <span class="note">Buffet, family-style platters, or plated service</span>
+    </div>
+    <div class="dishes">
+      <div class="dish"><div><span class="dish-name">Jollof rice</span><span class="dish-desc">Smoky party-style, cooked over open flame in batches.</span></div><span class="tag">Signature</span></div>
+      <div class="dish"><div><span class="dish-name">Fried rice</span><span class="dish-desc">Liver, prawn, mixed vegetables, light curry base.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Coconut rice</span><span class="dish-desc">Coconut milk, scotch bonnet, toasted cashew finish.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Ofada rice &amp; ayamase</span><span class="dish-desc">Unpolished local rice with green pepper stew.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Egusi &amp; efo riro</span><span class="dish-desc">Melon seed and spinach stews, assorted meat or goat.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Banga &amp; afang soup</span><span class="dish-desc">Delta classics, slow-cooked with dried fish and periwinkle.</span></div></div>
+      <div class="dish"><div><span class="dish-name">White soup (ofe nsala)</span><span class="dish-desc">Catfish, utazi, yam thickener — served with pounded yam.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Swallow selection</span><span class="dish-desc">Pounded yam, semo, eba, amala, fufu — made on site.</span></div></div>
+    </div>
+  </section>
+
+  <section class="course" id="proteins">
+    <div class="course-head">
+      <h2>Grill &amp; proteins</h2>
+      <span class="note">Live grill stations available for outdoor events</span>
+    </div>
+    <div class="dishes">
+      <div class="dish"><div><span class="dish-name">Grilled chicken</span><span class="dish-desc">Half or quarter, marinated overnight, charred on the grill.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Peppered goat meat (asun)</span><span class="dish-desc">Smoked, tossed in pepper, onion and lime.</span></div><span class="tag">Signature</span></div>
+      <div class="dish"><div><span class="dish-name">Whole fried fish</span><span class="dish-desc">Croaker or tilapia, scored and fried, pepper sauce on the side.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Beef stew &amp; assorted meat</span><span class="dish-desc">Rich tomato-pepper base, slow-braised.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Peppered snails</span><span class="dish-desc">Cleaned, simmered, finished in a dry pepper sauce.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Roast lamb shoulder</span><span class="dish-desc">Carved at the table — rosemary, garlic, pan jus.</span></div></div>
+    </div>
+  </section>
+
+  <section class="course" id="continental">
+    <div class="course-head">
+      <h2>Continental</h2>
+      <span class="note">For corporate lunches, gala dinners and mixed guest lists</span>
+    </div>
+    <div class="dishes">
+      <div class="dish"><div><span class="dish-name">Grilled salmon</span><span class="dish-desc">Lemon-butter, seasonal greens, herbed potatoes.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Chicken cordon bleu</span><span class="dish-desc">Ham and cheese filled, breaded, finished with cream sauce.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Pasta station</span><span class="dish-desc">Made to order — arrabbiata, alfredo, or seafood marinara.</span></div><span class="tag">Live station</span></div>
+      <div class="dish"><div><span class="dish-name">Beef steak</span><span class="dish-desc">Sirloin, peppercorn or red wine reduction, pommes purée.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Roast chicken</span><span class="dish-desc">Herb-brined, carved tableside, gravy and stuffing.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Salad bar</span><span class="dish-desc">Caesar, garden, grain and slaw — dressed to order.</span></div></div>
+    </div>
+  </section>
+
+  <section class="course" id="desserts">
+    <div class="course-head">
+      <h2>Desserts &amp; bakery</h2>
+      <span class="note">Custom cakes need 5 working days' notice</span>
+    </div>
+    <div class="dishes">
+      <div class="dish"><div><span class="dish-name">Custom celebration cakes</span><span class="dish-desc">Tiered or single-tier, buttercream or fondant, your theme.</span></div><span class="tag">Made to order</span></div>
+      <div class="dish"><div><span class="dish-name">Cupcakes &amp; cake pops</span><span class="dish-desc">Branded toppers and colour-matched icing.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Meat pie &amp; sausage roll</span><span class="dish-desc">Shortcrust, generous filling, baked the morning of the event.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Dessert table</span><span class="dish-desc">Assorted pastries, tarts, brownies and parfaits, styled on site.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Fresh fruit platters</span><span class="dish-desc">Seasonal, carved and arranged for display.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Chocolate fountain</span><span class="dish-desc">With dippers — strawberry, marshmallow, pound cake.</span></div><span class="tag">Add-on</span></div>
+    </div>
+  </section>
+
+  <section class="course" id="drinks">
+    <div class="course-head">
+      <h2>Drinks</h2>
+      <span class="note">Mocktails and local drinks are brewed fresh — no concentrates</span>
+    </div>
+    <div class="dishes">
+      <div class="dish"><div><span class="dish-name">Chapman</span><span class="dish-desc">House blend, cucumber and citrus, served over crushed ice.</span></div><span class="tag">Signature</span></div>
+      <div class="dish"><div><span class="dish-name">Zobo &amp; kunu</span><span class="dish-desc">Hibiscus and millet, lightly spiced, served chilled.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Fresh juices</span><span class="dish-desc">Orange, pineapple, watermelon, ginger — pressed on site.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Smoothies &amp; mocktails</span><span class="dish-desc">A small curated list, garnished and served from the bar.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Water &amp; soft drinks</span><span class="dish-desc">Chilled, iced, and restocked through the event.</span></div></div>
+      <div class="dish"><div><span class="dish-name">Bartender service</span><span class="dish-desc">Staffed bar for cocktail or wine service (alcohol supplied separately).</span></div><span class="tag">Add-on</span></div>
+    </div>
+  </section>
+
+</main>
+
+<section class="packages" id="packages">
+  <div class="packages-inner">
+    <div class="eyebrow">Packages</div>
+    <h2>Three ways to feed a room.</h2>
+    <p class="lead">Pricing is quoted per guest after we know your date, venue and guest count — no two events cost the same. Below is what each package includes.</p>
+
+    <div class="tiers">
+      <div class="tier">
+        <div class="tier-kicker">Classic</div>
+        <h3>The Gathering</h3>
+        <p>For birthdays, showers and small family events.</p>
+        <ul class="tier-list">
+          <li>Small chops selection — 4 items</li>
+          <li>Two mains + one swallow</li>
+          <li>One dessert</li>
+          <li>Chilled drinks service</li>
+          <li>Service staff on site</li>
+        </ul>
+        <div class="tier-foot">Recommended for 30–80 guests</div>
+        <a href="index.html#contact">Request a quote</a>
+      </div>
+
+      <div class="tier featured">
+        <div class="badge">Most booked</div>
+        <div class="tier-kicker">Signature</div>
+        <h3>The Celebration</h3>
+        <p>Weddings, milestone parties and large family events.</p>
+        <ul class="tier-list">
+          <li>Small chops selection — 6 items</li>
+          <li>Three mains + two swallows</li>
+          <li>Grill station (chicken or goat)</li>
+          <li>Dessert table + celebration cake</li>
+          <li>Chapman, zobo and fresh juice</li>
+          <li>Uniformed service team + setup</li>
+        </ul>
+        <div class="tier-foot">Recommended for 100–300 guests</div>
+        <a href="index.html#contact">Request a quote</a>
+      </div>
+
+      <div class="tier">
+        <div class="tier-kicker">Corporate</div>
+        <h3>The Boardroom</h3>
+        <p>Meetings, launches, trainings and office functions.</p>
+        <ul class="tier-list">
+          <li>Breakfast or lunch service</li>
+          <li>Continental and Nigerian options</li>
+          <li>Individually plated or buffet</li>
+          <li>Tea, coffee and refreshment breaks</li>
+          <li>Discreet, timed setup and clearing</li>
+        </ul>
+        <div class="tier-foot">Half-day or full-day rates available</div>
+        <a href="index.html#contact">Request a quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="eyebrow">How it works</div>
+  <h2>From first message to last plate.</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="num">01</div>
+      <h3>Tell us the shape of it</h3>
+      <p>Date, venue, guest count and the feel you're going for. A phone call or a form submission is enough to start.</p>
+    </div>
+    <div class="step">
+      <div class="num">02</div>
+      <h3>We build the menu</h3>
+      <p>You get a written proposal — dishes, quantities, service plan and a per-guest price. We adjust until it fits.</p>
+    </div>
+    <div class="step">
+      <div class="num">03</div>
+      <h3>We cook, you host</h3>
+      <p>Our team handles setup, service and clearing. You stay with your guests; we handle the rest.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-inner">
+    <div>
+      <h2>Send us your date and guest count.</h2>
+      <p>We reply within 24 hours with a menu proposal and a per-guest quote.</p>
+    </div>
+    <a href="index.html#contact">Start your enquiry</a>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div><strong style="font-family:'Fraunces',serif;font-size:15px;color:var(--ink)">Fancy Plate</strong> Catering &amp; Events · FHA Zuba, Abuja · 07064651016</div>
+    <div class="foot-links">
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('burger').addEventListener('click', function(){
+  var links = document.getElementById('navLinks');
+  var open = links.classList.toggle('open');
+  this.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+</script>
+</body>
+</html>
