@@ -232,16 +232,18 @@ footer { padding: 48px 32px; border-top: 1px solid var(--border); text-align: ce
           <div class="contact-icon">✉️</div>
           <div>
             <div style="font-weight:600; font-size:14px; color:var(--muted);">Email</div>
-            <div>375566580@qq.com</div>
+            <div>aeg224406@gmail.com</div>
           </div>
         </div>
       </div>
-      <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! We will contact you soon.');">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <input type="text" placeholder="Event Type">
-        <textarea placeholder="Tell us about your event..."></textarea>
-        <button type="submit" class="btn-primary" style="width:100%;">Send Message</button>
+      <form class="contact-form" id="enquiryForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="tel" name="phone" placeholder="Phone Number">
+        <input type="text" name="event_type" placeholder="Event Type (wedding, corporate, birthday...)">
+        <textarea name="message" placeholder="Tell us about your event — date, guest count, location..." required></textarea>
+        <button type="submit" class="btn-primary" id="submitBtn" style="width:100%;">Send Message</button>
+        <p id="formStatus" role="status" aria-live="polite" style="margin-top:14px; font-size:14px; display:none;"></p>
       </form>
     </div>
   </div>
@@ -253,6 +255,52 @@ footer { padding: 48px 32px; border-top: 1px solid var(--border); text-align: ce
     <div class="footer-copy">© 2026 Fancy Plate Catering &amp; Events. Hand in Hand HLC Technology Limited.</div>
   </div>
 </footer>
+
+<script>
+const FORM_ENDPOINT = "https://formsubmit.co/ajax/d02b91e9d5c0834f270c692b5b4a25a4";
+const form = document.getElementById("enquiryForm");
+const btn = document.getElementById("submitBtn");
+const statusEl = document.getElementById("formStatus");
+
+function showStatus(msg, ok) {
+  statusEl.textContent = msg;
+  statusEl.style.display = "block";
+  statusEl.style.color = ok ? "#1d7a3e" : "#b3261e";
+}
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(form).entries());
+  data._subject = "New Fancy Plate enquiry — " + (data.name || "website");
+  data._template = "table";
+  data._captcha = "false";
+
+  btn.disabled = true;
+  const original = btn.textContent;
+  btn.textContent = "Sending...";
+  showStatus("Sending your enquiry...", true);
+
+  try {
+    const res = await fetch(FORM_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(data)
+    });
+    const out = await res.json();
+    if (res.ok && out.success !== "false") {
+      showStatus("Thank you, " + (data.name || "friend") + "! Your enquiry has been sent — we'll reply within 24 hours.", true);
+      form.reset();
+    } else {
+      throw new Error(out.message || "Submission failed");
+    }
+  } catch (err) {
+    showStatus("Sorry, something went wrong. Please call us on 07064651016 instead.", false);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = original;
+  }
+});
+</script>
 
 </body>
 </html>
