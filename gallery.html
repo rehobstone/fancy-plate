@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gallery — Fancy Plate Catering & Events, Abuja</title>
+<link rel="icon" href="fp_favicon.png">
 <meta name="description" content="A look at the tables, plates and rooms Fancy Plate Catering & Events has styled across Abuja — weddings, corporate events, celebrations and bakery.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -97,13 +98,32 @@ footer{background:var(--bg)}
   .note-inner,.foot-inner{padding-left:20px;padding-right:20px}
 }
 @media(prefers-reduced-motion:reduce){.tile svg{transition:none}}
+
+/* ---- Brand refresh: plum / champagne / brass ---- */
+:root{
+  --bg:#FAF6EF; --ink:#2A1A22; --ink-soft:#3C2A31; --accent:#A67C4E; --accent-soft:#D9BE93;
+  --muted:#6E5F63; --card:#FFFFFF; --border:#E7DCD2; --plum:#3A1A27; --champagne:#E0CBA8;
+}
+body{background:var(--bg)}
+.logo img{display:block;height:50px;width:auto}
+@media(max-width:720px){.logo img{height:40px}}
+.nav-cta{background:var(--plum)!important;color:#FAF6EF!important}
+.nav-cta:hover{background:var(--accent)!important}
+.nav-links a.active{border-bottom-color:var(--accent)!important}
+.filters a:hover,.filters button:hover{border-color:var(--accent)!important;color:var(--accent)!important}
+.filters button[aria-pressed="true"]{background:var(--plum)!important;border-color:var(--plum)!important;color:#FAF6EF!important}
+.eyebrow,.section-tag,.course .note,.tag{color:var(--accent)!important}
+.tag{background:#FBF3E7!important;border-color:#E7D6BE!important}
+.tier.featured,.cta{background:var(--plum)!important}
+.tier.featured a,.cta a{background:var(--champagne)!important;color:#2A1A22!important}
+.btn-primary,.submit{background:var(--plum)!important;color:#FAF6EF!important}
 </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="logo">Fancy<span>Plate</span></a>
+    <a href="index.html" class="logo"><img src="fp_logo_web.png" alt="Fancy Plate Catering &amp; Events"></a>
     <div class="nav-links" id="navLinks">
       <a href="menu.html">Menu</a>
       <a href="gallery.html" class="active">Gallery</a>
